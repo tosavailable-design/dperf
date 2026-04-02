@@ -5,4 +5,6 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
-          time echo "scale=5000; 4*a(1)" | bc -lq
+          taskset -c 0 time awk 'BEGIN{for(i=0;i<50000000;i++){a=sin(i)*cos(i)}}'
+          taskset -c 0 time bash -c 'for ((i=0; i<5000000; i++)); do ((a=i*i)); done'
+          taskset -c 0 time echo "scale=10000; 4*a(1)" | bc -l > /dev/null
