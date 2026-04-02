@@ -5,6 +5,5 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
-          openssl speed -evp aes-256-gcm
-          openssl speed rsa4096
-          openssl speed -multi $(nproc) -evp aes-256-gcm
+          openssl speed -evp sha256
+          openssl speed -evp sha512
