@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
-          openssl speed -evp chacha20-poly1305
+          openssl speed ed25519
   stress-2:
     runs-on: ubuntu-24.04
     steps:
       - run: |
-          openssl speed -evp chacha20-poly1305
+          openssl speed ed25519
